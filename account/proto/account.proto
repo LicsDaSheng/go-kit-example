@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package proto;
+
+option go_package=".;proto";
+
+service Account{
+    rpc CreateUser(CreateUserRequest) returns (CreateUserReply);
+    rpc GetUser(GetUserRequest) returns (GetUserReply);
+}
+
+message CreateUserRequest {
+    string email = 1;
+    string password =2;
+}
+message CreateUserReply{
+    string ok = 1;
+}
+message GetUserRequest {
+    string id =1;
+}
+message GetUserReply{
+    string id =1;
+    string email = 2;
+    string password =3;
+}
